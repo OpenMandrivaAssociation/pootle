@@ -12,6 +12,7 @@ Patch0: Pootle-0.10.1-et.patch
 License: GPL
 Group: Networking/WWW
 Url: http://translate.sourceforge.net/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
 BuildRequires: python-devel
 Requires: python-jtoolkit
