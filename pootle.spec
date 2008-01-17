@@ -1,6 +1,6 @@
 %define name pootle
 %define oname Pootle
-%define version 0.11
+%define version 1.0.2
 %define release %mkrel 1
 
 Summary: Web-based translation
@@ -8,7 +8,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://downloads.sourceforge.net/translate/%{oname}-%{version}.tar.bz2
-Patch0: Pootle-0.10.1-et.patch
 License: GPL
 Group: Networking/WWW
 Url: http://translate.sourceforge.net/
@@ -24,7 +23,6 @@ Pootle is a web translation and translation management engine.
 
 %prep
 %setup -q -n %{oname}-%{version}
-%patch0 -p1 -b .et
 
 %build
 ./pootlesetup.py build
