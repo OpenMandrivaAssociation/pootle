@@ -61,5 +61,3 @@ rm -rf %{buildroot}
 %{_var}/lib/%{name}
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/*.prefs
-
-
