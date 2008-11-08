@@ -1,6 +1,6 @@
 %define name pootle
 %define oname Pootle
-%define version 1.1.0
+%define version 1.2.0
 %define release %mkrel 1
 
 Summary: Web-based translation
