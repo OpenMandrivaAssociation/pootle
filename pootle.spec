@@ -25,11 +25,11 @@ Pootle is a web translation and translation management engine.
 %setup -q -n %{oname}-%{version}
 
 %build
-./pootlesetup.py build
+./setup.py build
 
 %install
 rm -rf %{buildroot}
-./pootlesetup.py install --prefix=%{buildroot}%{_prefix}
+./setup.py install --root=%{buildroot} --prefix=%{_prefix}
 
 move_in() {
   target=$1
@@ -41,21 +41,20 @@ move_in() {
   done
 }
 
-move_in %{_var}/www/%{name} html templates
-move_in %{_var}/lib/%{name} po
-move_in %{_sysconfdir}/%{name} %{name}.prefs users.prefs
+#move_in %{_var}/www/%{name} html templates
+#move_in %{_var}/lib/%{name} po
+#move_in %{_sysconfdir}/%{name} %{name}.prefs users.prefs
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc %{oname}/ChangeLog %{oname}/README
-%{_bindir}/%{oname}Server
-%{_bindir}/updatetm
-%{py_puresitedir}/%{oname}
-%{py_puresitedir}/*.egg-info
-%{_var}/www/%{name}
+%doc ChangeLog README
+%{_bindir}/*
+%{_datadir}/%{name}
+%{py_puresitedir}/*
+#{_var}/www/%{name}
 %{_var}/lib/%{name}
 %dir %{_sysconfdir}/%{name}
-%config(noreplace) %{_sysconfdir}/%{name}/*.prefs
+%config(noreplace) %{_sysconfdir}/%{name}/*
