@@ -16,7 +16,7 @@ BuildArch: noarch
 BuildRequires: python-devel
 Requires: python-jtoolkit
 Requires: python-kid
-Requires: python-translate
+Requires: python-translate >= 1.5.1
 
 %description
 Pootle is a web translation and translation management engine.
