@@ -1,7 +1,7 @@
 %define name pootle
 %define oname Pootle
-%define version 2.0.0
-%define release %mkrel 2
+%define version 2.0.1
+%define release %mkrel 1
 
 Summary: Web-based translation
 Name: %{name}
