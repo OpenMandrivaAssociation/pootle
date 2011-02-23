@@ -1,7 +1,7 @@
 %define name pootle
 %define oname Pootle
-%define version 2.0.1
-%define release %mkrel 3
+%define version 2.1.5
+%define release %mkrel 1
 
 Summary: Web-based translation
 Name: %{name}
@@ -11,15 +11,14 @@ License: GPLv2+
 Group: Development/Other
 Url: http://translate.sourceforge.net/
 Source0: http://downloads.sourceforge.net/translate/%{oname}-%{version}.tar.bz2
-Patch0: pootle-2.0-optimal-settings.patch
 %py_requires -d
 Requires: memcached
 Requires: python-translate >= 1.5.1
 Requires: python-django >= 1.0
 Requires: apache-mod_wsgi
-Requires: python-memcached
 Requires: python-lxml
 Suggests: python-levenshtein
+Suggests: python-memcached
 Suggests: iso-codes
 Suggests: unzip
 Suggests: xapian-bindings-python >= 1.0.13
@@ -48,7 +47,6 @@ Its features include::
 
 %prep
 %setup -q -n %{oname}-%{version}
-%patch0 -p2
 
 %build
 %{__python} setup.py build
@@ -116,9 +114,16 @@ rm -rf %{buildroot}
 %{py_puresitedir}/%{name}_notifications
 %{py_puresitedir}/%{name}_autonotices
 %{py_puresitedir}/%{name}_misc
+%{py_puresitedir}/%{name}_terminology
+%{py_puresitedir}/%{name}_translationproject
+%{py_puresitedir}/%{name}_profile
+%{py_puresitedir}/%{name}_project
+%{py_puresitedir}/%{name}_language
+%{py_puresitedir}/%{name}_statistics
 %{py_puresitedir}/djblets
 %{py_puresitedir}/profiles
 %{py_puresitedir}/registration
+%{py_puresitedir}/contact_form_i18n
 %{py_puresitedir}/*.egg-info
 %{_var}/www/%{name}
 %attr(0755,apache,apache) %{_var}/lib/%{name}
