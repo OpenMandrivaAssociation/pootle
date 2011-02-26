@@ -57,7 +57,7 @@ rm -rf %{buildroot}
 %{__python} setup.py install -O1 --root %{buildroot}
 
 # do not ship a bundled copy, as this is already packaged
-rm -Rf %{buildroot}/%{py_puresitedir}/djblets
+rm -Rf %{buildroot}/%{python_sitelib}/djblets
 
 install -d -m 755 %{buildroot}%{_var}/www/%{name}
 cp %{buildroot}%{_docdir}/%{name}/wsgi.py %{buildroot}%{_var}/www/%{name}
@@ -112,22 +112,22 @@ rm -rf %{buildroot}
 %{_bindir}/updatetm
 %{_bindir}/import_pootle_prefs
 %{_datadir}/%{name}
-%{py_puresitedir}/%{name}
-%{py_puresitedir}/%{name}_app
-%{py_puresitedir}/%{name}_store
-%{py_puresitedir}/%{name}_notifications
-%{py_puresitedir}/%{name}_autonotices
-%{py_puresitedir}/%{name}_misc
-%{py_puresitedir}/%{name}_terminology
-%{py_puresitedir}/%{name}_translationproject
-%{py_puresitedir}/%{name}_profile
-%{py_puresitedir}/%{name}_project
-%{py_puresitedir}/%{name}_language
-%{py_puresitedir}/%{name}_statistics
-%{py_puresitedir}/profiles
-%{py_puresitedir}/registration
-%{py_puresitedir}/contact_form_i18n
-%{py_puresitedir}/*.egg-info
+%{python_sitelib}/%{name}
+%{python_sitelib}/%{name}_app
+%{python_sitelib}/%{name}_store
+%{python_sitelib}/%{name}_notifications
+%{python_sitelib}/%{name}_autonotices
+%{python_sitelib}/%{name}_misc
+%{python_sitelib}/%{name}_terminology
+%{python_sitelib}/%{name}_translationproject
+%{python_sitelib}/%{name}_profile
+%{python_sitelib}/%{name}_project
+%{python_sitelib}/%{name}_language
+%{python_sitelib}/%{name}_statistics
+%{python_sitelib}/profiles
+%{python_sitelib}/registration
+%{python_sitelib}/contact_form_i18n
+%{python_sitelib}/*.egg-info
 %{_var}/www/%{name}
 %attr(0755,apache,apache) %{_var}/lib/%{name}
 %dir %{_sysconfdir}/%{name}
