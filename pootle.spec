@@ -11,7 +11,7 @@ License: GPLv2+
 Group: Development/Other
 Url: http://translate.sourceforge.net/
 Source0: http://downloads.sourceforge.net/translate/%{oname}-%{version}.tar.bz2
-%py_requires -d
+BuildRequires: python-devel
 Requires: memcached
 Requires: python-translate >= 1.5.1
 Requires: python-django >= 1.0
