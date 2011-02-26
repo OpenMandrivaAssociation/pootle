@@ -1,7 +1,7 @@
 %define name pootle
 %define oname Pootle
 %define version 2.1.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Web-based translation
 Name: %{name}
@@ -15,8 +15,10 @@ Source0: http://downloads.sourceforge.net/translate/%{oname}-%{version}.tar.bz2
 Requires: memcached
 Requires: python-translate >= 1.5.1
 Requires: python-django >= 1.0
+# this one should be relaxed
 Requires: apache-mod_wsgi
 Requires: python-lxml
+Requires: python-djblets
 Suggests: python-levenshtein
 Suggests: python-memcached
 Suggests: iso-codes
@@ -54,6 +56,9 @@ Its features include::
 %install
 rm -rf %{buildroot}
 %{__python} setup.py install -O1 --root %{buildroot}
+
+# do not ship a bundled copy, as this is already packaged
+rm -Rf %{buildroot}/%{py_puresitedir}/djblets
 
 install -d -m 755 %{buildroot}%{_var}/www/%{name}
 cp %{buildroot}%{_docdir}/%{name}/wsgi.py %{buildroot}%{_var}/www/%{name}
@@ -120,7 +125,6 @@ rm -rf %{buildroot}
 %{py_puresitedir}/%{name}_project
 %{py_puresitedir}/%{name}_language
 %{py_puresitedir}/%{name}_statistics
-%{py_puresitedir}/djblets
 %{py_puresitedir}/profiles
 %{py_puresitedir}/registration
 %{py_puresitedir}/contact_form_i18n
