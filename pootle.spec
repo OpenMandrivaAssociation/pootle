@@ -133,3 +133,84 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/localsettings.py
 %config(noreplace) %{_webappconfdir}/%{name}.conf
+
+
+%changelog
+* Sat Feb 26 2011 Michael Scherer <misc@mandriva.org> 2.1.5-2mdv2011.0
++ Revision: 640101
+- use upstream macro name
+- drop requires on memcached, as it can work without it
+- drop mdv specific macros
+- do not ship a copy of djblets, as it is already in another rpm
+
+* Wed Feb 23 2011 Michael Scherer <misc@mandriva.org> 2.1.5-1
++ Revision: 639457
+- update to 2.1.5
+- remove patch to force memcached by default, and relax requires on it
+
+* Fri Oct 29 2010 Michael Scherer <misc@mandriva.org> 2.0.1-3mdv2011.0
++ Revision: 590174
+- rebuild for python 2.7
+
+* Sun Feb 07 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.1-2mdv2010.1
++ Revision: 501749
+- rely on filetrigger for reloading apache configuration begining with 2010.1, rpm-helper macros otherwise
+
+* Tue Jan 12 2010 Jérôme Brenier <incubusss@mandriva.org> 2.0.1-1mdv2010.1
++ Revision: 490116
+- new version 2.0.1
+
+* Fri Dec 11 2009 Jérôme Brenier <incubusss@mandriva.org> 2.0.0-2mdv2010.1
++ Revision: 476231
+- a lot of specfile modifications to fit the new version, based on the work
+  of Alaa Abd el Fattah (upstream) (Bugzilla #56293)
+- add pootle-2.0-optimal-settings.patch
+
+* Thu Dec 10 2009 Funda Wang <fwang@mandriva.org> 2.0.0-1mdv2010.1
++ Revision: 476202
+- fix build
+- Bump version requires
+- new version 2.0.0
+
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 1.2.1-2mdv2010.0
++ Revision: 441893
+- rebuild
+
+* Tue Jan 06 2009 Funda Wang <fwang@mandriva.org> 1.2.1-1mdv2009.1
++ Revision: 326083
+- update to new version 1.2.1
+
+* Tue Jan 06 2009 Funda Wang <fwang@mandriva.org> 1.2.0-2mdv2009.1
++ Revision: 325805
+- rebuild
+
+* Sat Nov 08 2008 Funda Wang <fwang@mandriva.org> 1.2.0-1mdv2009.1
++ Revision: 301131
+- New version 1.2.0
+
+* Mon Jul 14 2008 Funda Wang <fwang@mandriva.org> 1.1.0-1mdv2009.0
++ Revision: 234423
+- New version 1.1.0
+
+* Thu Jan 17 2008 Olivier Blin <oblin@mandriva.com> 1.0.2-1mdv2008.1
++ Revision: 154281
+- 1.0.2
+- remove ElementTree patch, fixed upstream
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Mon Apr 23 2007 Olivier Blin <oblin@mandriva.com> 0.11-1mdv2008.0
++ Revision: 17489
+- 0.11
+
+
+* Fri Jan 12 2007 Olivier Blin <oblin@mandriva.com> 0.10.1-1mdv2007.0
++ Revision: 108075
+- move config files in /etc/pootle
+- move data files in webapp locations
+- fix elementtree import
+- initial pootle package
+- Create pootle
+
