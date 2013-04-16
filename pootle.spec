@@ -1,12 +1,9 @@
-%define name pootle
 %define oname Pootle
-%define version 2.1.5
-%define release: 4
 
 Summary: Web-based translation
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name:    pootle
+Version: 2.1.5
+Release: 4
 License: GPLv2+
 Group: Development/Other
 Url: http://translate.sourceforge.net/
@@ -27,12 +24,7 @@ Suggests: xapian-core >= 1.0.13
 Suggests: python-mysql
 Suggests: mysqlserver
 Suggests: apache-mod_deflate
-%if %mdkversion < 201010
-Requires(post):   rpm-helper
-Requires(postun):   rpm-helper
-%endif
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}
 
 
 %description
