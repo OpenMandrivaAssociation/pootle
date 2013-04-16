@@ -1,7 +1,7 @@
 %define name pootle
 %define oname Pootle
 %define version 2.1.5
-%define release %mkrel 2
+%define release: 3
 
 Summary: Web-based translation
 Name: %{name}
@@ -95,15 +95,7 @@ EOF
 %clean
 rm -rf %{buildroot}
 
-%post
-%if %mdkversion < 201010
-%_post_webapp
-%endif
 
-%postun
-%if %mdkversion < 201010
-%_postun_webapp
-%endif
 
 %files
 %defattr(-,root,root,-)
