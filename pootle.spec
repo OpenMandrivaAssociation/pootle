@@ -54,8 +54,8 @@ rm -Rf %{buildroot}/%{python_sitelib}/djblets
 install -d -m 755 %{buildroot}%{_var}/www/%{name}
 cp %{buildroot}%{_docdir}/%{name}/wsgi.py %{buildroot}%{_var}/www/%{name}
 
-install -d -m 755 %{buildroot}%{_webappconfdir}
-cat >> %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
+install -d -m 755 %{buildroot}%{webappconfdir}
+cat >> %{buildroot}%{webappconfdir}/%{name}.conf <<EOF
 WSGIScriptAlias /%{name} %{_var}/www/%{name}/wsgi.py
 <Directory %{_var}/www/%{name}>
     Order allow,deny
@@ -83,6 +83,9 @@ Alias /%{name}/export %{_var}/lib/%{name}/po
     </location>
 </IfModule>
 EOF
+
+# Drop shebang from non-executable scripts to make rpmlint happy
+find %{buildroot}%{py_platsitedir} -name "*py" -perm 644 -exec sed -i '/#!\/usr\/bin\/env python/d' {} \;
 
 %clean
 rm -rf %{buildroot}
