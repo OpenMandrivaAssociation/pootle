@@ -3,7 +3,7 @@
 Summary: Web-based translation
 Name:    pootle
 Version: 2.1.5
-Release: 4
+Release: 5
 License: GPLv2+
 Group: Development/Other
 Url: http://translate.sourceforge.net/
@@ -54,8 +54,8 @@ rm -Rf %{buildroot}/%{python_sitelib}/djblets
 install -d -m 755 %{buildroot}%{_var}/www/%{name}
 cp %{buildroot}%{_docdir}/%{name}/wsgi.py %{buildroot}%{_var}/www/%{name}
 
-install -d -m 755 %{buildroot}%{webappconfdir}
-cat >> %{buildroot}%{webappconfdir}/%{name}.conf <<EOF
+install -d -m 755 %{buildroot}%{_webappconfdir}
+cat >> %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 WSGIScriptAlias /%{name} %{_var}/www/%{name}/wsgi.py
 <Directory %{_var}/www/%{name}>
     Order allow,deny
