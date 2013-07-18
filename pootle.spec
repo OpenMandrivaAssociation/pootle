@@ -3,7 +3,7 @@
 Summary: Web-based translation
 Name:    pootle
 Version: 2.1.5
-Release: 5
+Release: 6
 License: GPLv2+
 Group: Development/Other
 Url: http://translate.sourceforge.net/
@@ -58,20 +58,17 @@ install -d -m 755 %{buildroot}%{_webappconfdir}
 cat >> %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 WSGIScriptAlias /%{name} %{_var}/www/%{name}/wsgi.py
 <Directory %{_var}/www/%{name}>
-    Order allow,deny
-    Allow from all
+    Require all granted
 </Directory>
 
 Alias /%{name}/html %{_datadir}/%{name}/html
 <Directory "%{_datadir}/%{name}/html">
-    Order allow,deny
-    Allow from all
+    Require all granted
 </Directory>
 
 Alias /%{name}/export %{_var}/lib/%{name}/po
 <Directory "%{_var}/lib/%{name}/po">
-    Order allow,deny
-    Allow from all
+    Require all granted
 </Directory>
 
 <IfModule mod_deflate.c>
