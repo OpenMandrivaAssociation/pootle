@@ -6,7 +6,7 @@ Version: 2.1.5
 Release: 7
 License: GPLv2+
 Group: Development/Other
-Url: http://translate.sourceforge.net/
+Url: https://translate.sourceforge.net/
 Source0: http://downloads.sourceforge.net/translate/%{oname}-%{version}.tar.bz2
 BuildRequires: python-devel
 Requires: python-translate >= 1.5.1
